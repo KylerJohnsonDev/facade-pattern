@@ -19,3 +19,5 @@ export class Book {
     return uuidv4();
   }
 }
+
+export type ID = { [id: string]: Book };

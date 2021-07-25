@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
-import { Book } from "../models/book";
+import { Book, ID } from "../models/book";
 import { map } from 'rxjs/operators';
 import { mapToArrayOfValues } from "../utils/map-to-array";
+import { objArrayToMap } from "../utils/array-to-map";
 
 const buildInitialBooksState = () => {
   const book1 = new Book('The Phoenix Project', 'Gene Kim, Kevin Behr, and George Spafford', 'Professional Development', 25);
@@ -21,6 +22,11 @@ export class BooksStore {
 
   private _books$ = new BehaviorSubject<Map<string, Book>>(buildInitialBooksState());
   public books$: Observable<Book[]> = this._books$.asObservable().pipe(map(mapToArrayOfValues));
+
+  setState(books: Book[]) {
+    const booksMap = objArrayToMap<Book>('id', books);
+    this._books$.next(booksMap);
+  }
 
   addBook(book: Book) {
     const booksMapCopy = new Map(this._books$.value)
