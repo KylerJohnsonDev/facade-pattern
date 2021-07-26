@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book } from 'src/app/models/book';
 import { BooksStore } from 'src/app/state/books.store';
@@ -17,8 +17,5 @@ export class BooksPageComponent {
   constructor(
     private booksStore: BooksStore
   ) { }
-
-  ngOnInit(): void {
-  }
 
 }

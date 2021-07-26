@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BooksPageComponent } from './pages/books-page/books-page/books-page.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: BooksPageComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

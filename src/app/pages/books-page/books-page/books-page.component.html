@@ -1,1 +1,5 @@
-<p>books-page works!</p>
+<ng-container *ngIf="books$ | async as books">
+  <ul>
+    <li *ngFor="let book of books">{{ book.title }} - by {{ book.author }}</li>
+  </ul>
+</ng-container>

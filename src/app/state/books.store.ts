@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
-import { Book, ID } from "../models/book";
+import { Book } from "../models/book";
 import { map } from 'rxjs/operators';
 import { mapToArrayOfValues } from "../utils/map-to-array";
 import { objArrayToMap } from "../utils/array-to-map";
